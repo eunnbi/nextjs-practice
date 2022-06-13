@@ -1,8 +1,8 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useQuery } from "react-query";
-import CustomHead from "../../components/CustomHead";
+import CustomHead from "../../components/common/CustomHead";
 import GenreList from "../../components/GenreList";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/common/Button";
 import Loading from "../../components/Loading";
 import { useBack } from "../../hooks/useBack";
 import { getMovieDetail, IMovieProps } from "../../lib/api/movies";
@@ -10,6 +10,7 @@ import styled from "styled-components";
 
 const PosterImg = styled.img`
   width: 300px;
+  border-radius: 10px;
   @media screen and (max-width: 500px) {
     width: 100%;
   }
@@ -47,7 +48,7 @@ const Detail = ({
     <>
       <CustomHead title={title as string} />
       <main>
-        <h2>{title}</h2>
+        <h1>{title}</h1>
         <DetailRow>
           <PosterImg src={query.imageUrl} />
           <div>

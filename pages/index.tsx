@@ -1,7 +1,7 @@
 // pages/index.tsx
 
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import CustomHead from "../components/CustomHead";
+import CustomHead from "../components/common/CustomHead";
 import Movie from "../components/Movie";
 import { IMovieProps } from "../lib/api/movies";
 import styled from "styled-components";

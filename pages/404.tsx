@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import CustomHead from "../components/CustomHead";
-import { Button } from "../components/Button";
+import CustomHead from "../components/common/CustomHead";
+import { Button } from "../components/common/Button";
 import { useBack } from "../hooks/useBack";
 import styled from "styled-components";
 
