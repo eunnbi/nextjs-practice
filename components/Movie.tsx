@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { IMovieProps } from "../lib/api/movies";
 import styled from "styled-components";
 import { useRouter } from "next/router";
@@ -23,12 +22,23 @@ const Image = styled.img`
 
 const Movie = ({ movie }: { movie: IMovieProps }) => {
   const router = useRouter();
-  const onClick = (id: number, title: string) => {
-    router.push(`/movies/${title}/${id}`);
+  const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+  const onClick = (id: number, title: string, imageUrl: string) => {
+    router.push(
+      {
+        pathname: `/movies/${title}/${id}`,
+        query: {
+          imageUrl,
+        },
+      },
+      `/movies/${title}/${id}`
+    );
   };
   return (
-    <StyledMovie onClick={() => onClick(movie.id, movie.original_title)}>
-      <Image src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+    <StyledMovie
+      onClick={() => onClick(movie.id, movie.original_title, imageUrl)}
+    >
+      <Image src={imageUrl} />
       <h4>{movie.original_title}</h4>
     </StyledMovie>
   );
