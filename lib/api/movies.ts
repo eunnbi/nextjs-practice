@@ -20,5 +20,18 @@ export interface IMovieProps {
   poster_path: string;
   title: string;
   vote_average: number;
-  genre_ids: number[];
+  genres: IMovieGenre[];
+  release_date: string;
+  homepage: string;
 }
+
+export interface IMovieGenre {
+  id: number;
+  name: string;
+}
+
+export const getMovieDetail = async (id: string) => {
+  if (!id) return;
+  const { data } = await axios.get(`/api/movies/${id}`);
+  return data;
+};
