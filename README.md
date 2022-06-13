@@ -2,6 +2,14 @@
 
 NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들었습니다.
 
+<br/>
+
+## 📚 Study 내용
+
+<br/>
+
+<a href="https://velog.io/@eunnbi/series/NextJS"><img alt="Styled-Component" src ="https://img.shields.io/badge/NextJS Series-20C997.svg?&style=flat-square&logo=Velog&logoColor=white"/></a>
+
 ### App component 커스텀
 
 - 공통 레이아웃 컴포넌트를 만들어 \_app.tsx에 렌더링
@@ -35,3 +43,11 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 - getServerSideProps함수 인자로 Context Parameter가 들어온다. 이를 이용해 params와 query 데이터를 반환하여 페이지를 pre-render할 때 포함시킨다.
   - [💻 context parameter code example](https://github.com/eunnbi/nextjs-practice/blob/main/pages/movies/%5B...params%5D.tsx#L34)
 - [✨ getServerSideProps](https://velog.io/@eunnbi/NextJS-getServerSideProps)
+
+<br/>
+
+## 🛠️ Tech Stack
+
+<img alt="TypeScript" src ="https://img.shields.io/badge/TypeScript-3178C6.svg?&style=flat-square&logo=TypeScript&logoColor=white"/> <img alt="NextJS" src ="https://img.shields.io/badge/NextJS-000000.svg?&style=flat-square&logo=Next.js&logoColor=white"/>
+<img alt="Styled Components" src ="https://img.shields.io/badge/Styled Components-DB7093.svg?&style=flat-square&logo=styled-components&logoColor=white"/>
+<img alt="React Query" src ="https://img.shields.io/badge/React Query-FF4154.svg?&style=flat-square&logo=React Query&logoColor=white"/>
