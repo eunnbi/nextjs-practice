@@ -9,14 +9,19 @@ import { getMovieDetail, IMovieProps } from "../../lib/api/movies";
 import styled from "styled-components";
 
 const PosterImg = styled.img`
-  max-width: 300px;
-  width: 80vw;
+  width: 300px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const DetailRow = styled.div`
   display: flex;
   gap: 20px;
   margin-bottom: 2rem;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 const Overview = styled.p`
