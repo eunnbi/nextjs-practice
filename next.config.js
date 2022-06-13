@@ -3,15 +3,6 @@
 const API_KEY = process.env.API_KEY;
 const nextConfig = {
   reactStrictMode: true,
-  async redirects() {
-    return [
-      {
-        source: "/old-blog/:path*",
-        destination: "/new-blog/:path*",
-        permanent: false,
-      },
-    ];
-  },
   async rewrites() {
     return [
       {
