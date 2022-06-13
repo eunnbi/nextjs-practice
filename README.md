@@ -6,8 +6,6 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 
 ## 📚 Study 내용
 
-<br/>
-
 <a href="https://velog.io/@eunnbi/series/NextJS"><img alt="Styled-Component" src ="https://img.shields.io/badge/NextJS Series-20C997.svg?&style=flat-square&logo=Velog&logoColor=white"/></a>
 
 ### App component 커스텀
