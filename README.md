@@ -49,3 +49,7 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 <img alt="TypeScript" src ="https://img.shields.io/badge/TypeScript-3178C6.svg?&style=flat-square&logo=TypeScript&logoColor=white"/> <img alt="NextJS" src ="https://img.shields.io/badge/NextJS-000000.svg?&style=flat-square&logo=Next.js&logoColor=white"/>
 <img alt="Styled Components" src ="https://img.shields.io/badge/Styled Components-DB7093.svg?&style=flat-square&logo=styled-components&logoColor=white"/>
 <img alt="React Query" src ="https://img.shields.io/badge/React Query-FF4154.svg?&style=flat-square&logo=React Query&logoColor=white"/>
+
+<br/>
+
+> [Next.js App을 Vercel에 deploy하기](https://nextjs.org/learn/basics/deploying-nextjs-app/setup)
