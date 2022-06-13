@@ -10,18 +10,21 @@ const StyledNav = styled.nav`
   padding: 20px 0 10px;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
   font-weight: bold;
-  img {
-    max-width: 100px;
-    margin-bottom: 5px;
+  h1 {
+    margin: 5px 0;
+    span {
+      font-size: 30px;
+    }
   }
   div {
     display: flex;
-    gap: 10px;
+    gap: 20px;
   }
 `;
 
 const Anchor = styled.a<{ router: string; pathName: string }>`
-  color: ${(props) => (props.pathName === props.router ? "red" : "black")};
+  color: ${(props) =>
+    props.pathName === props.router ? "blueviolet" : "black"};
   cursor: pointer;
 `;
 
@@ -30,7 +33,9 @@ const NavBar = () => {
 
   return (
     <StyledNav>
-      <img src="/vercel.svg" />
+      <h1>
+        💖 <span>Movie</span> 💖
+      </h1>
       <div>
         <Link href="/">
           <Anchor pathName="/" router={router.pathname}>
