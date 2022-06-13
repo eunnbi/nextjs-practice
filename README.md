@@ -16,7 +16,7 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 
 - [🚗 automatic routing](https://velog.io/@eunnbi/NextJS-Routing#-pages-%ED%8F%B4%EB%8D%94)
 - [💥 Dynamic Routes](https://velog.io/@eunnbi/NextJS-Routing#-dynamic-routes) 적용
-- [🌐 Catch All Routes](https://velog.io/@eunnbi/NextJS-Routing#-catch-all-routes) 적용f
+- [🌐 Catch All Routes](https://velog.io/@eunnbi/NextJS-Routing#-catch-all-routes) 적용
   - `pages/movies/[...params].tsx`
 - [🚧 404 page 커스텀](https://velog.io/@eunnbi/NextJS-Routing#-404-page)
 
