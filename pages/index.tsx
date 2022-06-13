@@ -27,7 +27,7 @@ export default Home;
 
 export const getServerSideProps = async () => {
   const { results } = await (
-    await fetch("http://localhost:3000/api/movies")
+    await fetch(`${process.env.BASE_URL}/api/movies`)
   ) // absolute URL (Server Side)
     .json();
   return {
