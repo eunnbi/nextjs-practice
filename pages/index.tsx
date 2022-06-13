@@ -9,7 +9,6 @@ import styled from "styled-components";
 const HomeMain = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 20px;
   gap: 20px;
 `;
 
