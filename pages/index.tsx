@@ -29,6 +29,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const protocol = req.headers["x-forwarded-proto"] || "http";
   const host = req.headers["x-forwarded-host"] || req.headers["host"];
   const baseUrl = `${protocol}://${host}`;
+  console.log(baseUrl);
   const { results } = await (
     await fetch(`${baseUrl}/api/movies`)
   ) // absolute URL (Server Side)
