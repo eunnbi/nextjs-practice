@@ -12,8 +12,11 @@ const HomeMain = styled.main`
   gap: 20px;
 `;
 
-const Home = ({ results }: InferGetServerSidePropsType<GetServerSideProps>) => {
-  console.log(results);
+const Home = ({
+  results,
+  baseUrl,
+}: InferGetServerSidePropsType<GetServerSideProps>) => {
+  console.log(results, baseUrl);
   return (
     <HomeMain>
       <CustomHead title="Home" />
@@ -38,6 +41,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       results,
+      baseUrl,
     },
   };
 };
