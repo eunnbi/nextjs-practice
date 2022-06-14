@@ -18,11 +18,6 @@ const Home = ({
   baseUrl,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   console.log(results, baseUrl);
-  useEffect(() => {
-    fetch(`${baseUrl}/api/movies`)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
   return (
     <HomeMain>
       <CustomHead title="Home" />
