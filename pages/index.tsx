@@ -5,7 +5,6 @@ import CustomHead from "../components/common/CustomHead";
 import Movie from "../components/Movie";
 import { IMovieProps } from "../lib/api/movies";
 import styled from "styled-components";
-import { useEffect } from "react";
 
 const HomeMain = styled.main`
   display: grid;
@@ -13,16 +12,7 @@ const HomeMain = styled.main`
   gap: 20px;
 `;
 
-const Home = ({
-  results,
-  baseUrl,
-}: InferGetServerSidePropsType<GetServerSideProps>) => {
-  console.log(results, baseUrl);
-  useEffect(() => {
-    fetch(`${baseUrl}/api/movies`)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
+const Home = ({ results }: InferGetServerSidePropsType<GetServerSideProps>) => {
   return (
     <HomeMain>
       <CustomHead title="Home" />
@@ -39,7 +29,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const protocol = req.headers["x-forwarded-proto"] || "http";
   const host = req.headers["x-forwarded-host"] || req.headers["host"];
   const baseUrl = `${protocol}://${host}`;
-  console.log(baseUrl);
   const { results } = await (
     await fetch(`${baseUrl}/api/movies`)
   ) // absolute URL (Server Side)
@@ -47,7 +36,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       results,
-      baseUrl,
     },
   };
 };
