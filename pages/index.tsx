@@ -25,9 +25,12 @@ const Home = ({ results }: InferGetServerSidePropsType<GetServerSideProps>) => {
 
 export default Home;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const protocol = req.headers["x-forwarded-proto"] || "http";
+  const host = req.headers["x-forwarded-host"] || req.headers["host"];
+  const baseUrl = `${protocol}://${host}`;
   const { results } = await (
-    await fetch(`${process.env.BASE_URL}/api/movies`)
+    await fetch(`${baseUrl}/api/movies`)
   ) // absolute URL (Server Side)
     .json();
   return {
