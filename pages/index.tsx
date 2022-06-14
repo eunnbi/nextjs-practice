@@ -13,6 +13,7 @@ const HomeMain = styled.main`
 `;
 
 const Home = ({ results }: InferGetServerSidePropsType<GetServerSideProps>) => {
+  console.log(results);
   return (
     <HomeMain>
       <CustomHead title="Home" />
