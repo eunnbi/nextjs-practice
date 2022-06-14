@@ -5,6 +5,7 @@ import CustomHead from "../components/common/CustomHead";
 import Movie from "../components/Movie";
 import { IMovieProps } from "../lib/api/movies";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const HomeMain = styled.main`
   display: grid;
@@ -17,6 +18,11 @@ const Home = ({
   baseUrl,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   console.log(results, baseUrl);
+  useEffect(() => {
+    fetch(`${baseUrl}/api/movies`)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);
   return (
     <HomeMain>
       <CustomHead title="Home" />
