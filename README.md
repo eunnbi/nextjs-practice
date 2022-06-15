@@ -55,8 +55,9 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 ## 🛠️ Tech Stack
 
 <img alt="TypeScript" src ="https://img.shields.io/badge/TypeScript-3178C6.svg?&style=flat-square&logo=TypeScript&logoColor=white"/> <img alt="NextJS" src ="https://img.shields.io/badge/NextJS-000000.svg?&style=flat-square&logo=Next.js&logoColor=white"/>
-<img alt="Styled Components" src ="https://img.shields.io/badge/Styled Components-DB7093.svg?&style=flat-square&logo=styled-components&logoColor=white"/>
 <img alt="React Query" src ="https://img.shields.io/badge/React Query-FF4154.svg?&style=flat-square&logo=React Query&logoColor=white"/>
+<img alt="Styled Components" src ="https://img.shields.io/badge/Styled Components-DB7093.svg?&style=flat-square&logo=styled-components&logoColor=white"/>
+<img alt="Sass" src ="https://img.shields.io/badge/Sass-CC6699.svg?&style=flat-square&logo=Sass&logoColor=white"/>
 <img alt="Vercel" src ="https://img.shields.io/badge/Vercel-000000.svg?&style=flat-square&logo=Vercel&logoColor=white"/>
 
 <br/>
@@ -66,4 +67,4 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 > 🐛 bug issues
 >
 > - [🚧 배포 사이트 error 발생 (absolute url)](https://github.com/eunnbi/nextjs-practice/issues/1)
-> - [🌍 vercel 배포 프로젝트에 env 환경변수 넣기](https://github.com/eunnbi/nextjs-practice/issues/2)
+> - [🌍 vercel 배포 프로젝트에 환경변수 넣기](https://github.com/eunnbi/nextjs-practice/issues/2)
