@@ -3,6 +3,7 @@
   position: relative;
   & > span {
     position: unset !important;
+    width: 300px !important;
   }
 }
 
@@ -32,6 +33,9 @@
 @media screen and (max-width: 500px) {
   .imgContainer {
     width: 100%;
+    & > span {
+      width: 100% !important;
+    }
   }
   .row {
     flex-direction: column;
