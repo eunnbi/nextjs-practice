@@ -42,6 +42,14 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
   - [💻 context parameter code example](https://github.com/eunnbi/nextjs-practice/blob/main/pages/movies/%5B...params%5D.tsx#L34)
 - [✨ getServerSideProps](https://velog.io/@eunnbi/NextJS-getServerSideProps)
 
+### styled-components와 함께 사용하기
+
+- html 파일에 CSS-in-JS 형식으로 작성된 스타일 요소를 미리 주입하여 스타일이 적용되지 않은 html 코드가 먼저 렌더링되는 문제 해결
+  - [pages/\_document.tsx](https://github.com/eunnbi/nextjs-practice/blob/main/pages/_document.tsx#L1)
+- server와 client에서 생성하는 class 해시값이 충돌하는 문제 해결
+  - [.babelrc](https://github.com/eunnbi/nextjs-practice/blob/main/.babelrc#L1)
+- [💅 styled-components와 함께 사용하기](https://velog.io/@eunnbi/NextJS-styled-components%EC%99%80-%ED%95%A8%EA%BB%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+
 <br/>
 
 ## 🛠️ Tech Stack
