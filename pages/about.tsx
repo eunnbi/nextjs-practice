@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { Button } from "../components/common/Button.styled";
 import CustomHead from "../components/common/CustomHead";
 import { ImGithub } from "react-icons/im";
-import styles from "../styles/About.module.css";
+import styles from "../styles/About.module.scss";
 
 const About: NextPage = () => {
   return (
