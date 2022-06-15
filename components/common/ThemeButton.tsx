@@ -1,11 +1,11 @@
-import { useEffect } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 
 const ToggleButton = styled.button<{ isLightTheme: boolean }>`
   position: fixed;
   top: 10px;
   right: 10px;
+  z-index: 5;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,6 @@ interface ThemeButtonProps {
 }
 
 const ThemeButton = ({ isLightTheme, changeTheme }: ThemeButtonProps) => {
-  const theme = useTheme();
   return (
     <ToggleButton isLightTheme={isLightTheme} onClick={changeTheme}>
       <Circle isLightTheme={isLightTheme} />
