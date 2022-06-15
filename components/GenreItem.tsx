@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 const StyledItem = styled.li`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.name === "dark" && "#363636"};
   padding: 0.5rem;
   border-radius: 10px;
-  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: ${({ theme }) => `1px 5px 5px ${theme.shadowColor}`};
+  margin-bottom: 0.5rem;
 `;
 
 const GenreItem = ({ genre }: { genre: string }) => {

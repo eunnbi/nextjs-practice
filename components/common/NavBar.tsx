@@ -8,7 +8,7 @@ const StyledNav = styled.nav`
   flex-direction: column;
   align-items: center;
   padding: 20px 0 10px;
-  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => `0px 10px 50px ${theme.shadowColor}`};
   font-weight: bold;
   h1 {
     margin: 5px 0;
@@ -24,7 +24,9 @@ const StyledNav = styled.nav`
 
 const Anchor = styled.a<{ router: string; pathName: string }>`
   color: ${(props) =>
-    props.pathName === props.router ? "blueviolet" : "black"};
+    props.pathName === props.router
+      ? props.theme.menuColor
+      : props.theme.textColor};
   cursor: pointer;
 `;
 
