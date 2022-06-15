@@ -61,4 +61,8 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 
 <br/>
 
-> [Next.js App을 Vercel에 deploy하기](https://nextjs.org/learn/basics/deploying-nextjs-app/setup)
+> [Next.js App을 Vercel에 deploy하기](https://nextjs.org/learn/basics/deploying-nextjs-app/setup)<br/>
+> 🐛 bug issues
+>
+> - [🚧 배포 사이트 error 발생 (absolute url)](https://github.com/eunnbi/nextjs-practice/issues/1)
+> - [🌍 vercel 배포 프로젝트에 env 환경변수 넣기](https://github.com/eunnbi/nextjs-practice/issues/2)
