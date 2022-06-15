@@ -18,6 +18,7 @@ const About: NextPage = () => {
             className={styles.link}
             href="https://github.com/eunnbi/nextjs-practice"
             target="_blank"
+            rel="noreferrer"
           >
             <ImGithub />
             README 보러가기
