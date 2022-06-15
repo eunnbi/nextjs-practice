@@ -1,6 +1,9 @@
-.posterImg {
+.imgContainer {
   width: 300px;
-  border-radius: 10px;
+  position: relative;
+  & > span {
+    position: unset !important;
+  }
 }
 
 .row {
@@ -27,7 +30,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .posterImg {
+  .imgContainer {
     width: 100%;
   }
   .row {
