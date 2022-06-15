@@ -1,10 +1,13 @@
+import { useRouter } from "next/router";
+import PosterImg from "./common/PosterImg";
 import { IMovieProps } from "../lib/api/movies";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 
 const StyledMovie = styled.div`
   cursor: pointer;
-  &:hover img {
+  display: flex;
+  flex-direction: column;
+  &:hover .img-container {
     transform: scale(1.05) translateY(-10px);
   }
   h4 {
@@ -13,16 +16,17 @@ const StyledMovie = styled.div`
   }
 `;
 
-const Image = styled.img`
+const ImageWrapper = styled.div`
   max-width: 100%;
-  border-radius: 12px;
+  position: relative;
   transition: transform 0.2s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  & > span {
+    position: unset !important;
+  }
 `;
 
 const Movie = ({ movie }: { movie: IMovieProps }) => {
   const router = useRouter();
-  const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   const onClick = (id: number, title: string, imageUrl: string) => {
     router.push(
       {
@@ -36,9 +40,11 @@ const Movie = ({ movie }: { movie: IMovieProps }) => {
   };
   return (
     <StyledMovie
-      onClick={() => onClick(movie.id, movie.original_title, imageUrl)}
+      onClick={() => onClick(movie.id, movie.original_title, movie.poster_path)}
     >
-      <Image src={imageUrl} />
+      <ImageWrapper className="img-container">
+        <PosterImg src={movie.poster_path} />
+      </ImageWrapper>
       <h4>{movie.original_title}</h4>
     </StyledMovie>
   );

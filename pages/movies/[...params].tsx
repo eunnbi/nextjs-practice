@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import CustomHead from "../../components/common/CustomHead";
 import GenreList from "../../components/GenreList";
 import { Button } from "../../components/common/Button.styled";
+import PosterImg from "../../components/common/PosterImg";
 import { useBack } from "../../hooks/useBack";
 import { getMovieDetail, IMovieProps } from "../../lib/api/movies";
 import styles from "../../styles/Detail.module.scss";
@@ -25,13 +26,19 @@ const Detail = ({
         <h1>{title}</h1>
         {status === "loading" ? (
           <div className={styles.column}>
-            <img className={styles.posterImg} src={query.imageUrl} />
+            {query.imageUrl && (
+              <div className={styles.imgContainer}>
+                <PosterImg src={query.imageUrl} />
+              </div>
+            )}
             <h1 className={styles.loading}>Loading...</h1>
           </div>
         ) : (
           <>
             <div className={styles.row}>
-              <img className={styles.posterImg} src={query.imageUrl} />
+              <div className={styles.imgContainer}>
+                <PosterImg src={data!.poster_path} />
+              </div>
               <div>
                 <p>📅 {data?.release_date}</p>
                 <p>⭐ {data?.vote_average}</p>
