@@ -4,22 +4,16 @@ import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import CustomHead from "../components/common/CustomHead";
 import Movie from "../components/Movie";
 import { IMovieProps } from "../lib/api/movies";
-import styled from "styled-components";
-
-const HomeMain = styled.main`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-`;
+import styles from "../styles/Home.module.scss";
 
 const Home = ({ results }: InferGetServerSidePropsType<GetServerSideProps>) => {
   return (
-    <HomeMain>
+    <main className={styles.main}>
       <CustomHead title="Home" />
       {results?.map((movie: IMovieProps) => (
         <Movie key={movie.id} movie={movie} />
       ))}
-    </HomeMain>
+    </main>
   );
 };
 
