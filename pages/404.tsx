@@ -1,26 +1,17 @@
-import { useRouter } from "next/router";
 import CustomHead from "../components/common/CustomHead";
-import { Button } from "../components/common/Button";
+import { Button } from "../components/common/Button.styled";
 import { useBack } from "../hooks/useBack";
-import styled from "styled-components";
-
-const NotFoundMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
-`;
+import styles from "../styles/404.module.scss";
 
 const NotFound = () => {
   const { goBack } = useBack();
   return (
     <>
       <CustomHead title="Not Found!" />
-      <NotFoundMain>
+      <main className={styles.main}>
         <h1>Not Found</h1>
         <Button onClick={goBack}>⬅️ Go Back</Button>
-      </NotFoundMain>
+      </main>
     </>
   );
 };
