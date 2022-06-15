@@ -9,6 +9,19 @@
   margin-bottom: 2rem;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.loading {
+  flex-grow: 1;
+  opacity: 0.5;
+  font-size: 20px;
+  text-align: center;
+}
+
 .overview {
   color: rgba(0, 0, 0, 0.8);
   line-height: 2rem;

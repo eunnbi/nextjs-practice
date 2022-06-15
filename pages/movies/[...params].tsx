@@ -3,7 +3,6 @@ import { useQuery } from "react-query";
 import CustomHead from "../../components/common/CustomHead";
 import GenreList from "../../components/GenreList";
 import { Button } from "../../components/common/Button.styled";
-import Loading from "../../components/Loading";
 import { useBack } from "../../hooks/useBack";
 import { getMovieDetail, IMovieProps } from "../../lib/api/movies";
 import styles from "../../styles/Detail.module.scss";
@@ -19,25 +18,31 @@ const Detail = ({
     getMovieDetail(id as string)
   );
   const { goBack } = useBack();
-  if (status === "loading") {
-    return <Loading />;
-  }
   return (
     <>
       <CustomHead title={title as string} />
       <main>
         <h1>{title}</h1>
-        <div className={styles.row}>
-          <img className={styles.posterImg} src={query.imageUrl} />
-          <div>
-            <p>📅 {data?.release_date}</p>
-            <p>⭐ {data?.vote_average}</p>
-            <GenreList genres={data!.genres} />
+        {status === "loading" ? (
+          <div className={styles.column}>
+            <img className={styles.posterImg} src={query.imageUrl} />
+            <h1 className={styles.loading}>Loading...</h1>
           </div>
-        </div>
-        <h3>📖 Overview</h3>
-        <p className={styles.overview}>{data?.overview}</p>
-        <Button onClick={goBack}>Go Back</Button>
+        ) : (
+          <>
+            <div className={styles.row}>
+              <img className={styles.posterImg} src={query.imageUrl} />
+              <div>
+                <p>📅 {data?.release_date}</p>
+                <p>⭐ {data?.vote_average}</p>
+                <GenreList genres={data!.genres} />
+              </div>
+            </div>
+            <h3>📖 Overview</h3>
+            <p className={styles.overview}>{data?.overview}</p>
+            <Button onClick={goBack}>Go Back</Button>
+          </>
+        )}
       </main>
     </>
   );
