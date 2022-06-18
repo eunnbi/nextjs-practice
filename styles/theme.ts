@@ -9,7 +9,6 @@ export const lightTheme = {
 export const darkTheme = {
   bgColor: "#252525",
   menuColor: "#D391FA",
-  buttonBgColor: "#000",
   textColor: "#fff",
   shadowColor: "#000",
   name: "dark",
