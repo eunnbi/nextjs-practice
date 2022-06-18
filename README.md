@@ -68,3 +68,5 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 >
 > - [🚧 배포 사이트 error 발생 (absolute url)](https://github.com/eunnbi/nextjs-practice/issues/1)
 > - [🌍 vercel 배포 프로젝트에 환경변수 넣기](https://github.com/eunnbi/nextjs-practice/issues/2)
+
+test
