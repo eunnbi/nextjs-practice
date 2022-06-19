@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import PosterImg from "./common/PosterImg";
+import PosterImage from "./common/PosterImage";
 import { IMovieProps } from "../lib/api/movies";
 import styled from "styled-components";
 
@@ -43,7 +43,7 @@ const Movie = ({ movie }: { movie: IMovieProps }) => {
       onClick={() => onClick(movie.id, movie.original_title, movie.poster_path)}
     >
       <ImageWrapper className="img-container">
-        <PosterImg src={movie.poster_path} />
+        <PosterImage src={movie.poster_path} />
       </ImageWrapper>
       <h4>{movie.original_title}</h4>
     </StyledMovie>

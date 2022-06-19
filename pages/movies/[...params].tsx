@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import CustomHead from "../../components/common/CustomHead";
 import GenreList from "../../components/GenreList";
 import { Button } from "../../components/common/Button.styled";
-import PosterImg from "../../components/common/PosterImg";
+import PosterImage from "../../components/common/PosterImage";
 import { useBack } from "../../hooks/useBack";
 import { getMovieDetail, IMovieProps } from "../../lib/api/movies";
 import styles from "../../styles/Detail.module.scss";
@@ -28,7 +28,7 @@ const Detail = ({
           <div className={styles.column}>
             {query.imageUrl && (
               <div className={styles.imgContainer}>
-                <PosterImg src={query.imageUrl} />
+                <PosterImage src={query.imageUrl} />
               </div>
             )}
             <h1 className={styles.loading}>Loading...</h1>
@@ -37,7 +37,7 @@ const Detail = ({
           <>
             <div className={styles.row}>
               <div className={styles.imgContainer}>
-                <PosterImg src={data!.poster_path} />
+                <PosterImage src={data!.poster_path} />
               </div>
               <div>
                 <p>📅 {data?.release_date}</p>

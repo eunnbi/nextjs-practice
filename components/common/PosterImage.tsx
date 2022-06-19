@@ -10,7 +10,7 @@ const Img = styled(Image)`
   border-radius: 15px;
 `;
 
-const PosterImg = ({ src }: { src: string }) => {
+const PosterImage = ({ src }: { src: string }) => {
   return (
     <Img
       src={`https://image.tmdb.org/t/p/w500/${src}`}
@@ -21,4 +21,4 @@ const PosterImg = ({ src }: { src: string }) => {
   );
 };
 
-export default PosterImg;
+export default PosterImage;
