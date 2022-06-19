@@ -3,7 +3,6 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const Img = styled(Image)`
-  width: 100%;
   height: auto !important;
   position: relative !important;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
