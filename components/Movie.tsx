@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import PosterImage from "./common/PosterImage";
-import { IMovieProps } from "../lib/api/movies";
+import { MovieData } from "../types/movie";
 import styled from "styled-components";
 
 const StyledMovie = styled.div`
@@ -25,7 +25,7 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Movie = ({ movie }: { movie: IMovieProps }) => {
+const Movie = ({ movie }: { movie: MovieData }) => {
   const router = useRouter();
   const onClick = (id: number, title: string, imageUrl: string) => {
     router.push(
