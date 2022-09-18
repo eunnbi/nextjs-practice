@@ -1,17 +1,17 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../styles/theme";
 import { GlobalStyle } from "../styles/GlobalStyle";
-import Layout from "../components/common/Layout";
-import ThemeButton from "../components/common/ThemeButton";
+import Layout from "../components/Layout";
+import ThemeButton from "../components/ThemeButton";
 
-const queryClient = new QueryClient();
 const THEME = "theme" as const;
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(() => new QueryClient());
   const [isLightTheme, setIsLightTheme] = useState(true);
   const changeTheme = () => {
     localStorage.setItem(THEME, JSON.stringify(!isLightTheme));
@@ -25,13 +25,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
-        <GlobalStyle />
-        <ThemeButton isLightTheme={isLightTheme} changeTheme={changeTheme} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Hydrate state={pageProps.dehydratedState}>
+        <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
+          <GlobalStyle />
+          <ThemeButton isLightTheme={isLightTheme} changeTheme={changeTheme} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </Hydrate>
     </QueryClientProvider>
   );
 }
