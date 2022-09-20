@@ -3,28 +3,6 @@ import PosterImage from "./common/PosterImage";
 import { MovieData } from "../types/movie";
 import styled from "styled-components";
 
-const StyledMovie = styled.div`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  &:hover .img-container {
-    transform: scale(1.05) translateY(-10px);
-  }
-  h4 {
-    font-size: 18px;
-    text-align: center;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  max-width: 100%;
-  position: relative;
-  transition: transform 0.2s ease-in-out;
-  & > span {
-    position: unset !important;
-  }
-`;
-
 const Movie = ({ movie }: { movie: MovieData }) => {
   const router = useRouter();
   const onClick = (id: number, title: string, imageUrl: string) => {
@@ -42,12 +20,33 @@ const Movie = ({ movie }: { movie: MovieData }) => {
     <StyledMovie
       onClick={() => onClick(movie.id, movie.original_title, movie.poster_path)}
     >
-      <ImageWrapper className="img-container">
+      <ImageWrapper>
         <PosterImage src={movie.poster_path} />
       </ImageWrapper>
-      <h4>{movie.original_title}</h4>
     </StyledMovie>
   );
 };
 
 export default Movie;
+
+const ImageWrapper = styled.div`
+  max-width: 100%;
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+  & > span {
+    position: unset !important;
+  }
+`;
+
+const StyledMovie = styled.div`
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  &:hover ${ImageWrapper} {
+    transform: scale(1.05) translateY(-10px);
+  }
+  h4 {
+    font-size: 18px;
+    text-align: center;
+  }
+`;
