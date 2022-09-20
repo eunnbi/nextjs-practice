@@ -1,12 +1,14 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useQuery } from "react-query";
+import { QueryClient, useQuery, dehydrate } from "react-query";
 import CustomHead from "../../components/common/CustomHead";
 import GenreList from "../../components/GenreList";
 import { Button } from "../../components/common/Button.styled";
 import PosterImage from "../../components/common/PosterImage";
 import { useBack } from "../../hooks/useBack";
-import { getMovieDetail, IMovieProps } from "../../lib/api/movies";
+import { movieDetailQuery } from "../../api/movie";
+import { MovieData } from "../../types/movie";
 import styles from "../../styles/Detail.module.scss";
+import { getAbsoluteUrl } from "../../utils";
 
 type MovieDetailParams = [string, string] | [];
 
@@ -15,38 +17,40 @@ const Detail = ({
   query,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [title, id] = params as MovieDetailParams;
-  const { data, status } = useQuery<IMovieProps>(["detail", id], () =>
-    getMovieDetail(id as string)
+  const { data, status } = useQuery<MovieData>(movieDetailQuery.key(id), () =>
+    movieDetailQuery.fetcher({ id })
   );
   const { goBack } = useBack();
   return (
     <>
       <CustomHead title={title as string} />
-      <main>
+      <main className={styles.main}>
         <h1>{title}</h1>
         {status === "loading" ? (
-          <div className={styles.column}>
+          <>
             {query.imageUrl && (
               <div className={styles.imgContainer}>
                 <PosterImage src={query.imageUrl} />
               </div>
             )}
             <h1 className={styles.loading}>Loading...</h1>
-          </div>
+          </>
         ) : (
           <>
             <div className={styles.row}>
               <div className={styles.imgContainer}>
                 <PosterImage src={data!.poster_path} />
               </div>
-              <div>
+              <div className={styles.column}>
                 <p>📅 {data?.release_date}</p>
                 <p>⭐ {data?.vote_average}</p>
                 <GenreList genres={data!.genres} />
               </div>
             </div>
-            <h3>📖 Overview</h3>
-            <p className={styles.overview}>{data?.overview}</p>
+            <div>
+              <h3>📖 Overview</h3>
+              <p className={styles.overview}>{data?.overview}</p>
+            </div>
             <Button onClick={goBack}>Go Back</Button>
           </>
         )}
@@ -57,10 +61,23 @@ const Detail = ({
 
 export default Detail;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const params = context.params!.params as MovieDetailParams;
-  const query = context.query;
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  query,
+  req,
+}) => {
+  const baseUrl = getAbsoluteUrl(req);
+  const [title, id] = params!.params as MovieDetailParams;
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(movieDetailQuery.key(id), () =>
+    movieDetailQuery.fetcher({ id, baseUrl })
+  );
   return {
-    props: { params, query },
+    props: {
+      params: [title, id],
+      query,
+      dehydratedState: dehydrate(queryClient),
+      navBar: false,
+    },
   };
 };
