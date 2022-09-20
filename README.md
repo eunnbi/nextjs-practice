@@ -41,7 +41,7 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 - getServerSideProps함수 인자로 Context Parameter가 들어온다. 이를 이용해 params와 query 데이터를 반환하여 페이지를 pre-render할 때 포함시킨다.
   - [💻 context parameter code example](https://github.com/eunnbi/nextjs-practice/blob/main/pages/movies/%5B...params%5D.tsx#L34)
 - [✨ getServerSideProps](https://velog.io/@eunnbi/NextJS-getServerSideProps)
-- [NextJS의 pre-rendering](https://velog.io/@eunnbi/NextJS-Pre-rendering)
+- [👍 NextJS의 pre-rendering](https://velog.io/@eunnbi/NextJS-Pre-rendering)
 
 ### styled-components와 함께 사용하기
 
