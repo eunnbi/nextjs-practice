@@ -1,10 +1,14 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+interface LayoutProps {
+  navBar: boolean;
+}
+
+const Layout = ({ children, navBar }: React.PropsWithChildren<LayoutProps>) => {
   return (
     <>
-      <NavBar />
+      {navBar ? <NavBar /> : null}
       {children}
     </>
   );
