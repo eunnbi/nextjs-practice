@@ -9,18 +9,17 @@ import Layout from "../components/Layout";
 import ThemeButton from "../components/ThemeButton";
 import { useTheme } from "../hooks/useTheme";
 
-const THEME = "theme" as const;
-
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   const { isLightTheme, changeTheme } = useTheme();
+  const { navBar } = pageProps;
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
           <GlobalStyle />
           <ThemeButton isLightTheme={isLightTheme} changeTheme={changeTheme} />
-          <Layout>
+          <Layout navBar={navBar === undefined ? true : navBar}>
             <Component {...pageProps} />
           </Layout>
         </ThemeProvider>
