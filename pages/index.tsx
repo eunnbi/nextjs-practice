@@ -2,7 +2,7 @@
 import { QueryClient, dehydrate } from "react-query";
 import CustomHead from "../components/common/CustomHead";
 import styles from "../styles/Home.module.scss";
-import { moviesQuery } from "../api/movies";
+import { moviesQuery } from "../api/movie";
 import { GetServerSideProps } from "next";
 import MovieList from "../components/MovieList";
 
@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const baseUrl = `${protocol}://${host}`;
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(moviesQuery.key, () =>
-    moviesQuery.fetcher(baseUrl)
+    moviesQuery.fetcher({ baseUrl })
   );
   return {
     props: {
