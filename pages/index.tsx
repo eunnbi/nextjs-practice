@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.scss";
 import { moviesQuery } from "../api/movie";
 import { GetServerSideProps } from "next";
 import MovieList from "../components/MovieList";
+import { getAbsoluteUrl } from "../utils";
 
 const Home = () => {
   return (
@@ -18,9 +19,7 @@ const Home = () => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const protocol = req.headers["x-forwarded-proto"] || "http";
-  const host = req.headers["x-forwarded-host"] || req.headers["host"];
-  const baseUrl = `${protocol}://${host}`;
+  const baseUrl = getAbsoluteUrl(req);
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(moviesQuery.key, () =>
     moviesQuery.fetcher({ baseUrl })
