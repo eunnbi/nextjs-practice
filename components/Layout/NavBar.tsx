@@ -11,10 +11,9 @@ const StyledNav = styled.nav`
   box-shadow: ${({ theme }) => `0px 10px 50px ${theme.shadowColor}`};
   font-weight: bold;
   h1 > span {
-    font-size: 30px;
+    font-size: 28px;
   }
-
-  div {
+  & > div {
     display: flex;
     gap: 20px;
   }
