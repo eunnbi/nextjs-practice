@@ -9,7 +9,7 @@ const About: NextPage = () => {
     <>
       <CustomHead title="About" />
       <main className={styles.main}>
-        <p>
+        <p className={styles.desc}>
           <span>NextJS</span>를 공부하며 간단한 영화 정보 애플리케이션🎬 을
           만들었습니다.
         </p>
