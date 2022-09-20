@@ -41,6 +41,7 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 - getServerSideProps함수 인자로 Context Parameter가 들어온다. 이를 이용해 params와 query 데이터를 반환하여 페이지를 pre-render할 때 포함시킨다.
   - [💻 context parameter code example](https://github.com/eunnbi/nextjs-practice/blob/main/pages/movies/%5B...params%5D.tsx#L34)
 - [✨ getServerSideProps](https://velog.io/@eunnbi/NextJS-getServerSideProps)
+- [NextJS의 pre-rendering](https://velog.io/@eunnbi/NextJS-Pre-rendering)
 
 ### styled-components와 함께 사용하기
 
@@ -51,10 +52,15 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 - [💅 styled-components와 함께 사용하기](https://velog.io/@eunnbi/NextJS-styled-components%EC%99%80-%ED%95%A8%EA%BB%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 
 ### img 태그 대신 Image 컴포넌트 사용하기
-- [🖼️ Image 컴포넌트](https://velog.io/@eunnbi/NextJS-Image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8) (왜 img 태그 대신 Image 컴포넌트를 사용했는지, Image 컴포넌트의 장점과 사용법에 대해 정리)
-> ✅ issue : [Image 컴포넌트를 height: auto로 사용하기](https://velog.io/@eunnbi/NextJS-Image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8#%EF%B8%8F-image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-height-auto%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 
-<br/>
+- [🖼️ Image 컴포넌트](https://velog.io/@eunnbi/NextJS-Image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8) (왜 img 태그 대신 Image 컴포넌트를 사용했는지, Image 컴포넌트의 장점과 사용법에 대해 정리)
+  > ✅ issue : [Image 컴포넌트를 height: auto로 사용하기](https://velog.io/@eunnbi/NextJS-Image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8#%EF%B8%8F-image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-height-auto%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+
+### React Query 이용하여 Server-side Rendering하기
+
+- [NextJS + React Query (with SSR)](https://velog.io/@eunnbi/NextJS-React-Query-with-SSR)
+
+  <br/>
 
 ## 🛠️ Tech Stack
 
