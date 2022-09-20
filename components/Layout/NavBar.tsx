@@ -10,12 +10,10 @@ const StyledNav = styled.nav`
   padding: 20px 0 10px;
   box-shadow: ${({ theme }) => `0px 10px 50px ${theme.shadowColor}`};
   font-weight: bold;
-  h1 {
-    margin: 5px 0;
-    span {
-      font-size: 30px;
-    }
+  h1 > span {
+    font-size: 30px;
   }
+
   div {
     display: flex;
     gap: 20px;
@@ -36,7 +34,7 @@ const NavBar = () => {
   return (
     <StyledNav>
       <h1>
-        💖 <span>Movie</span> 💖
+        <span>💖</span> Movie <span>💖</span>
       </h1>
       <div>
         <Link href="/">
