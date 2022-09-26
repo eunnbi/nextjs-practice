@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 32px;
   align-items: flex-start;
+  margin-bottom: 32px;
 }
 
 .imgContainer {
@@ -48,5 +49,6 @@
   }
   .row {
     flex-direction: column;
+    width: 100%;
   }
 }
