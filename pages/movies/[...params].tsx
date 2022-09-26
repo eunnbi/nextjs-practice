@@ -1,4 +1,4 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { QueryClient, useQuery, dehydrate } from "react-query";
 import CustomHead from "../../components/common/CustomHead";
 import GenreList from "../../components/GenreList";
@@ -10,13 +10,11 @@ import { MovieData } from "../../types/movie";
 import styles from "../../styles/Detail.module.scss";
 import { getAbsoluteUrl } from "../../utils";
 
-type MovieDetailParams = [string, string] | [];
-
 const Detail = ({
   params,
   query,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const [title, id] = params as MovieDetailParams;
+  const [title, id] = params;
   const { data, status } = useQuery<MovieData>(movieDetailQuery.key(id), () =>
     movieDetailQuery.fetcher({ id })
   );
@@ -30,7 +28,7 @@ const Detail = ({
           <>
             {query.imageUrl && (
               <div className={styles.imgContainer}>
-                <PosterImage src={query.imageUrl} />
+                <PosterImage src={query.imageUrl as string} />
               </div>
             )}
             <h1 className={styles.loading}>Loading...</h1>
@@ -61,11 +59,13 @@ const Detail = ({
 
 export default Detail;
 
-export const getServerSideProps: GetServerSideProps = async ({
+type MovieDetailParams = [string, string] | [];
+
+export const getServerSideProps = async ({
   params,
   query,
   req,
-}) => {
+}: GetServerSidePropsContext) => {
   const baseUrl = getAbsoluteUrl(req);
   const [title, id] = params!.params as MovieDetailParams;
   const queryClient = new QueryClient();
