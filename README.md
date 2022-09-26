@@ -58,7 +58,7 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 
 ### React Query 이용하여 Server-side Rendering하기
 
-- [NextJS + React Query (with SSR)](https://velog.io/@eunnbi/NextJS-React-Query-with-SSR)
+- [💕 NextJS + React Query (with SSR)](https://velog.io/@eunnbi/NextJS-React-Query-with-SSR)
 
   <br/>
 
