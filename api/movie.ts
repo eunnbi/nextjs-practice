@@ -1,4 +1,6 @@
 import axios from "axios";
+import { MovieData, MoviesData } from "../types/movie";
+import { createResource } from "../hooks/useResource";
 
 interface getMovieInfoParams {
   id?: string;
@@ -12,12 +14,12 @@ const getMovieInfo = async ({ id, baseUrl }: getMovieInfoParams) => {
   return data;
 };
 
-export const moviesQuery = {
+export const moviesQuery = createResource<MoviesData, getMovieInfoParams>({
   key: ["movies"],
   fetcher: getMovieInfo,
-};
+});
 
-export const movieDetailQuery = {
+export const movieDetailQuery = createResource<MovieData, getMovieInfoParams>({
   key: (id: string | undefined) => ["detail", id],
   fetcher: getMovieInfo,
-};
+});
