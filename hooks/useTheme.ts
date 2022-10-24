@@ -1,19 +1,25 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { themeState } from "@store/themeState";
 
 const THEME = "theme" as const;
 
-export const useTheme = () => {
-  const [isLightTheme, setIsLightTheme] = useState(true);
+export const useThemeValue = () => {
+  return useRecoilValue(themeState);
+};
+
+export const useThemeState = () => {
+  const [{ isLightTheme }, setTheme] = useRecoilState(themeState);
   const changeTheme = () => {
-    setIsLightTheme((isLightTheme) => {
-      localStorage.setItem(THEME, JSON.stringify(!isLightTheme));
-      return !isLightTheme;
+    setTheme((state) => {
+      localStorage.setItem(THEME, JSON.stringify(!state.isLightTheme));
+      return { isLightTheme: !state.isLightTheme };
     });
   };
   useEffect(() => {
     const theme = localStorage.getItem(THEME);
     if (theme !== null) {
-      setIsLightTheme(JSON.parse(theme));
+      setTheme({ isLightTheme: JSON.parse(theme) });
     }
   }, []);
   return { isLightTheme, changeTheme };
