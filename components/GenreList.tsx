@@ -1,20 +1,26 @@
-import { MovieGenre } from "../types/movie";
-import GenreItem from "./GenreItem";
 import styled from "styled-components";
 
-const StyledList = styled.ul`
+const List = styled.ul`
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 `;
 
+const Item = styled.li`
+  background-color: ${({ theme }) => theme.name === "dark" && "#363636"};
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: ${({ theme }) => `1px 5px 5px ${theme.shadowColor}`};
+  margin-bottom: 0.5rem;
+`;
+
 const GenreList = ({ genres }: { genres: MovieGenre[] }) => {
   return (
-    <StyledList>
+    <List>
       {genres.map((genre: MovieGenre) => (
-        <GenreItem key={genre.id} genre={genre.name} />
+        <Item key={genre.id}>{genre.name}</Item>
       ))}
-    </StyledList>
+    </List>
   );
 };
 
