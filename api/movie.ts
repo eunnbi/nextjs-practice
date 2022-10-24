@@ -1,24 +1,26 @@
 import axios from "axios";
-import { createResource } from "../hooks/useResource";
 
-interface GetMovieInfoParams {
+const getMovieInfo = async ({
+  id,
+  baseUrl,
+  page,
+}: {
   id?: string;
   baseUrl?: string;
-}
-
-const getMovieInfo = async ({ id, baseUrl }: GetMovieInfoParams) => {
+  page?: number;
+}) => {
   const url = baseUrl ? `${baseUrl}/api/movies` : "/api/movies";
-  const finalUrl = id ? `${url}/${id}` : url;
+  const finalUrl = id ? `${url}/${id}` : `${url}?page=${page ? page : 1}`;
   const { data } = await axios.get(finalUrl);
   return data;
 };
 
-export const moviesQuery = createResource<MoviesData, GetMovieInfoParams>({
+export const moviesQuery = {
   key: ["movies"],
   fetcher: getMovieInfo,
-});
+};
 
-export const movieDetailQuery = createResource<MovieData, GetMovieInfoParams>({
+export const movieDetailQuery = {
   key: (id: string | undefined) => ["detail", id],
   fetcher: getMovieInfo,
-});
+};
