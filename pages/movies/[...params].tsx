@@ -1,15 +1,14 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { QueryClient, dehydrate } from "react-query";
-import CustomHead from "../../components/common/CustomHead";
-import GenreList from "../../components/GenreList";
-import { Button } from "../../components/common/Button.styled";
-import PosterImage from "../../components/common/PosterImage";
-import { useBack } from "../../hooks/useBack";
-import { movieDetailQuery } from "../../api/movie";
-import { MovieData } from "../../types/movie";
-import styles from "../../styles/Detail.module.scss";
-import { getAbsoluteUrl } from "../../utils";
-import useResource from "../../hooks/useResource";
+import CustomHead from "@components/common/CustomHead";
+import GenreList from "@components/GenreList";
+import { Button } from "@components/common/Button.styled";
+import PosterImage from "@components/common/PosterImage";
+import { useBack } from "@hooks/useBack";
+import { movieDetailQuery } from "@api/movie";
+import styles from "@styles/Detail.module.scss";
+import { getAbsoluteUrl } from "@utils/index";
+import useResource from "@hooks/useResource";
 
 const Detail = ({
   params,
