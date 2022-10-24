@@ -4,6 +4,9 @@ const path = require("path");
 const API_KEY = process.env.API_KEY;
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    scrollRestoration: true,
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
@@ -14,7 +17,13 @@ const nextConfig = {
     return [
       {
         source: "/api/movies",
-        destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
+        has: [
+          {
+            type: "query",
+            key: "page",
+          },
+        ],
+        destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=:page`,
       },
       {
         source: "/api/movies/:id",
