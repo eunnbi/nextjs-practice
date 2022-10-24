@@ -1,32 +1,57 @@
 import type { NextPage } from "next";
-import { Button } from "../components/common/Button.styled";
-import CustomHead from "../components/common/CustomHead";
+import { Button } from "@components/common/Button.styled";
+import CustomHead from "@components/common/CustomHead";
 import { ImGithub } from "react-icons/im";
-import styles from "../styles/About.module.scss";
+import styled from "styled-components";
 
 const About: NextPage = () => {
   return (
     <>
       <CustomHead title="About" />
-      <main className={styles.main}>
-        <p className={styles.desc}>
+      <Main>
+        <Desc>
           <span>NextJS</span>를 공부하며 간단한 영화 정보 애플리케이션🎬 을
           만들었습니다.
-        </p>
+        </Desc>
         <Button>
-          <a
-            className={styles.link}
+          <Anchor
             href="https://github.com/eunnbi/nextjs-practice"
             target="_blank"
             rel="noreferrer"
           >
             <ImGithub />
             README 보러가기
-          </a>
+          </Anchor>
         </Button>
-      </main>
+      </Main>
     </>
   );
 };
 
 export default About;
+
+const Main = styled.main`
+  padding: 1.5rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+`;
+
+const Anchor = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  svg {
+    font-size: 20px;
+  }
+`;
+
+const Desc = styled.p`
+  text-align: center;
+  span {
+    font-weight: bold;
+  }
+`;
