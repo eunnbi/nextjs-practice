@@ -21,12 +21,12 @@ export const getServerSideProps = async ({
 }: GetServerSidePropsContext) => {
   const baseUrl = getAbsoluteUrl(req);
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(moviesQuery.key, () =>
+  await queryClient.prefetchInfiniteQuery(moviesQuery.key, () =>
     moviesQuery.fetcher({ baseUrl })
   );
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },
   };
 };
