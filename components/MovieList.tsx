@@ -1,6 +1,5 @@
 import { moviesQuery } from "../api/movie";
 import useResource from "../hooks/useResource";
-import { MoviesData, MovieData } from "../types/movie";
 import Movie from "./Movie";
 
 const MovieList = () => {

@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import PosterImage from "./common/PosterImage";
-import { MovieData } from "../types/movie";
 import styled from "styled-components";
 
 const Movie = ({ movie }: { movie: MovieData }) => {
