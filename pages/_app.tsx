@@ -4,7 +4,7 @@ import { useState } from "react";
 import { RecoilRoot } from "recoil";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import Layout from "@components/Layout";
-import ThemeButton from "@components/ThemeButton";
+import ThemeButton from "@components/Layout/ThemeButton";
 import CustomThemeProvider from "@styles/CustomThemeProvider";
 import { GlobalStyle } from "@styles/GlobalStyle";
 
