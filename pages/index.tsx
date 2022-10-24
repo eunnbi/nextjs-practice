@@ -1,24 +1,24 @@
-// pages/index.tsx
+import { GetServerSidePropsContext } from "next";
 import { QueryClient, dehydrate } from "react-query";
-import CustomHead from "../components/common/CustomHead";
-import styles from "../styles/Home.module.scss";
-import { moviesQuery } from "../api/movie";
-import { GetServerSideProps } from "next";
-import MovieList from "../components/MovieList";
-import { getAbsoluteUrl } from "../utils";
+import CustomHead from "@components/common/CustomHead";
+import { moviesQuery } from "@api/movie";
+import { getAbsoluteUrl } from "@utils/index";
+import MovieListMain from "@components/MovieListMain";
 
 const Home = () => {
   return (
-    <main className={styles.main}>
+    <>
       <CustomHead title="Home" />
-      <MovieList />
-    </main>
+      <MovieListMain />
+    </>
   );
 };
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+export const getServerSideProps = async ({
+  req,
+}: GetServerSidePropsContext) => {
   const baseUrl = getAbsoluteUrl(req);
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(moviesQuery.key, () =>
