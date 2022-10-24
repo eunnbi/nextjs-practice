@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
-import { QueryClient, dehydrate } from "react-query";
+import { QueryClient, dehydrate, useQuery } from "react-query";
 import CustomHead from "@components/common/CustomHead";
 import GenreList from "@components/GenreList";
 import { Button } from "@components/common/Button.styled";
@@ -8,17 +8,15 @@ import { useBack } from "@hooks/useBack";
 import { movieDetailQuery } from "@api/movie";
 import styles from "@styles/Detail.module.scss";
 import { getAbsoluteUrl } from "@utils/index";
-import useResource from "@hooks/useResource";
 
 const Detail = ({
   params,
   query,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [title, id] = params;
-  const { data, status } = useResource<MovieData>({
-    key: movieDetailQuery.key(id),
-    fetcher: () => movieDetailQuery.fetcher({ id }),
-  });
+  const { data, status } = useQuery<MovieData>(movieDetailQuery.key(id), () =>
+    movieDetailQuery.fetcher({ id })
+  );
   const { goBack } = useBack();
   return (
     <>
