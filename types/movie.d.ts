@@ -1,11 +1,11 @@
-export interface MoviesData {
+declare interface MoviesData {
   page: number;
   results: MovieData[];
   total_pages: number;
   total_results: number;
 }
 
-export interface MovieData {
+declare interface MovieData {
   id: number;
   backdrop_path: string;
   original_title: string;
@@ -18,7 +18,7 @@ export interface MovieData {
   homepage: string;
 }
 
-export interface MovieGenre {
+declare interface MovieGenre {
   id: number;
   name: string;
 }
