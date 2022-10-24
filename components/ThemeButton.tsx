@@ -1,3 +1,4 @@
+import { useThemeState } from "@hooks/useTheme";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import styled from "styled-components";
 
@@ -32,12 +33,8 @@ const Circle = styled.div<{ isLightTheme: boolean }>`
   background-color: #fff;
 `;
 
-interface ThemeButtonProps {
-  isLightTheme: boolean;
-  changeTheme: () => void;
-}
-
-const ThemeButton = ({ isLightTheme, changeTheme }: ThemeButtonProps) => {
+const ThemeButton = () => {
+  const { isLightTheme, changeTheme } = useThemeState();
   return (
     <ToggleButton isLightTheme={isLightTheme} onClick={changeTheme}>
       <Circle isLightTheme={isLightTheme} />
