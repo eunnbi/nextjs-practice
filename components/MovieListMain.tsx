@@ -1,22 +1,33 @@
 import { moviesQuery } from "@api/movie";
-import useResource from "@hooks/useResource";
 import Movie from "./Movie";
 import styled from "styled-components";
+import { useInfiniteQuery } from "react-query";
+import { useRef } from "react";
+import { useInfiniteScroll } from "@hooks/useInfiniteScroll";
 
 const MovieListMain = () => {
-  const { data } = useResource<MoviesData>({
-    key: moviesQuery.key,
-    fetcher: () => moviesQuery.fetcher({}),
-  });
+  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery<MoviesData>(
+    moviesQuery.key,
+    ({ pageParam = 1 }) => moviesQuery.fetcher({ page: pageParam }),
+    {
+      getNextPageParam: (lastPage) => {
+        const { page, total_pages } = lastPage;
+        return page === total_pages ? undefined : page + 1;
+      },
+    }
+  );
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+  useInfiniteScroll({ hasNextPage, fetchNextPage, ref: loadMoreRef });
   return (
     <Main>
       {data ? (
         <>
-          {data?.results.map((movie: MovieData) => (
-            <Movie key={movie.id} movie={movie} />
-          ))}
+          {data?.pages.map((page) =>
+            page.results.map((movie) => <Movie movie={movie} key={movie.id} />)
+          )}
         </>
       ) : null}
+      <div ref={loadMoreRef}></div>
     </Main>
   );
 };
