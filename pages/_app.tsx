@@ -3,10 +3,10 @@ import type { AppProps } from "next/app";
 import { useState } from "react";
 import { RecoilRoot } from "recoil";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
-import Layout from "@components/Layout";
-import ThemeButton from "@components/Layout/ThemeButton";
+import ThemeButton from "@components/layout/ThemeButton";
 import CustomThemeProvider from "@styles/CustomThemeProvider";
 import { GlobalStyle } from "@styles/GlobalStyle";
+import Header from "@components/layout/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
@@ -27,9 +27,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           <CustomThemeProvider>
             <GlobalStyle />
             <ThemeButton />
-            <Layout navBar={navBar === undefined ? true : navBar}>
-              <Component {...pageProps} />
-            </Layout>
+            {navBar === undefined || navBar ? <Header /> : null}
+            <Component {...pageProps} />
           </CustomThemeProvider>
         </RecoilRoot>
       </Hydrate>
