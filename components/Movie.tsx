@@ -1,11 +1,12 @@
-import { useRouter } from "next/router";
+import Router from "next/router";
 import PosterImage from "./common/PosterImage";
 import styled from "styled-components";
+import { SCROLL_POS_KEY, setSessionStorage } from "@utils/sessionStorage";
 
 const Movie = ({ movie }: { movie: MovieData }) => {
-  const router = useRouter();
   const onClick = (id: number, title: string, imageUrl: string) => {
-    router.push(
+    setSessionStorage(SCROLL_POS_KEY, window.scrollY);
+    Router.push(
       {
         pathname: `/movies/${title}/${id}`,
         query: {
@@ -19,33 +20,23 @@ const Movie = ({ movie }: { movie: MovieData }) => {
     <StyledMovie
       onClick={() => onClick(movie.id, movie.original_title, movie.poster_path)}
     >
-      <ImageWrapper>
-        <PosterImage src={movie.poster_path} />
-      </ImageWrapper>
+      <PosterImage src={movie.poster_path} title={movie.title} sizes="230px" />
     </StyledMovie>
   );
 };
 
-export default Movie;
-
-const ImageWrapper = styled.div`
-  max-width: 100%;
+const StyledMovie = styled.div`
+  width: 100%;
+  height: 350px;
   position: relative;
   transition: transform 0.2s ease-in-out;
-  & > span {
-    position: unset !important;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05) translateY(-10px);
+  }
+  @media screen and (max-width: 520px) {
+    height: calc(75vw - 30px);
   }
 `;
 
-const StyledMovie = styled.div`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  &:hover ${ImageWrapper} {
-    transform: scale(1.05) translateY(-10px);
-  }
-  h4 {
-    font-size: 18px;
-    text-align: center;
-  }
-`;
+export default Movie;
