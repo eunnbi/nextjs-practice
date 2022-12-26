@@ -7,12 +7,10 @@
 }
 
 .imgContainer {
-  width: 300px;
   position: relative;
-  & > span {
-    position: unset !important;
-    width: 300px !important;
-  }
+  flex-shrink: 0;
+  width: 300px;
+  height: 450px;
 }
 
 .row {
@@ -36,16 +34,12 @@
 .overview {
   line-height: 32px;
   margin-top: 10px;
-  font-size: 1.2rem;
-  word-break: keep-all;
 }
 
 @media screen and (max-width: 500px) {
   .imgContainer {
     width: 100%;
-    & > span {
-      width: 100% !important;
-    }
+    height: calc(150vw - 40px);
   }
   .row {
     flex-direction: column;
