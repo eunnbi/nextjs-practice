@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-const StyledNav = styled.nav`
+const HeaderBox = styled.header`
   display: flex;
   gap: 10px;
   flex-direction: column;
@@ -13,13 +13,13 @@ const StyledNav = styled.nav`
   h1 > span {
     font-size: 28px;
   }
-  & > div {
+  nav {
     display: flex;
     gap: 20px;
   }
 `;
 
-const Anchor = styled.a<{ router: string; pathName: string }>`
+const StyledLink = styled(Link)<{ router: string; pathName: string }>`
   color: ${(props) =>
     props.pathName === props.router
       ? props.theme.menuColor
@@ -27,28 +27,24 @@ const Anchor = styled.a<{ router: string; pathName: string }>`
   cursor: pointer;
 `;
 
-const NavBar = () => {
+const Header = () => {
   const router = useRouter();
 
   return (
-    <StyledNav>
+    <HeaderBox>
       <h1>
         <span>💖</span> Movie <span>💖</span>
       </h1>
-      <div>
-        <Link href="/">
-          <Anchor pathName="/" router={router.pathname}>
-            Home
-          </Anchor>
-        </Link>
-        <Link href="/about">
-          <Anchor pathName="/about" router={router.pathname}>
-            About
-          </Anchor>
-        </Link>
-      </div>
-    </StyledNav>
+      <nav>
+        <StyledLink href="/" pathName="/" router={router.pathname}>
+          Home
+        </StyledLink>
+        <StyledLink href="/about" pathName="/about" router={router.pathname}>
+          About
+        </StyledLink>
+      </nav>
+    </HeaderBox>
   );
 };
 
-export default NavBar;
+export default Header;
