@@ -20,9 +20,9 @@ const HeaderBox = styled.header`
   }
 `;
 
-const StyledLink = styled(Link)<{ router: string; pathName: string }>`
+const StyledLink = styled(Link)<{ router: string; pathname: string }>`
   color: ${(props) =>
-    props.pathName === props.router
+    props.pathname === props.router
       ? props.theme.menuColor
       : props.theme.textColor};
   cursor: pointer;
@@ -37,10 +37,10 @@ const Header = () => {
         <span>💖</span> Movie <span>💖</span>
       </h1>
       <nav>
-        <StyledLink href="/" pathName="/" router={router.pathname}>
+        <StyledLink href="/" pathname="/" router={router.pathname}>
           Home
         </StyledLink>
-        <StyledLink href="/about" pathName="/about" router={router.pathname}>
+        <StyledLink href="/about" pathname="/about" router={router.pathname}>
           About
         </StyledLink>
       </nav>
