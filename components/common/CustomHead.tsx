@@ -7,7 +7,7 @@ interface CustomHeadProps {
 const CustomHead = ({ title }: CustomHeadProps) => {
   return (
     <Head>
-      <title>{title} | Next Movies</title>
+      <title>{`${title} | Next Movies`}</title>
     </Head>
   );
 };
