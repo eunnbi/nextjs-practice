@@ -4,8 +4,8 @@ const path = require("path");
 const API_KEY = process.env.API_KEY;
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    scrollRestoration: true,
+  compiler: {
+    styledComponents: true,
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
