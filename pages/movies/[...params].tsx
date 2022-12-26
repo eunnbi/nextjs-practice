@@ -4,10 +4,10 @@ import CustomHead from "@components/common/CustomHead";
 import GenreList from "@components/GenreList";
 import { Button } from "@components/common/Button.styled";
 import PosterImage from "@components/common/PosterImage";
-import { useBack } from "@hooks/useBack";
 import { movieDetailQuery } from "@api/movie";
 import styles from "@styles/Detail.module.scss";
-import { getAbsoluteUrl } from "@utils/index";
+import { getAbsoluteUrl } from "@utils/getAbsoluteUrl";
+import Router from "next/router";
 
 const Detail = ({
   params,
@@ -17,7 +17,7 @@ const Detail = ({
   const { data, status } = useQuery<MovieData>(movieDetailQuery.key(id), () =>
     movieDetailQuery.fetcher({ id })
   );
-  const { goBack } = useBack();
+  const goHome = () => Router.push("/");
   return (
     <>
       <CustomHead title={title as string} />
@@ -27,7 +27,10 @@ const Detail = ({
           <>
             {query.imageUrl && (
               <div className={styles.imgContainer}>
-                <PosterImage src={query.imageUrl as string} />
+                <PosterImage
+                  src={query.imageUrl as string}
+                  title={title as string}
+                />
               </div>
             )}
             <h1 className={styles.loading}>Loading...</h1>
@@ -36,7 +39,7 @@ const Detail = ({
           <>
             <div className={styles.row}>
               <div className={styles.imgContainer}>
-                <PosterImage src={data!.poster_path} />
+                <PosterImage src={data!.poster_path} title={title as string} />
               </div>
               <div className={styles.column}>
                 <p>📅 {data?.release_date}</p>
@@ -48,7 +51,7 @@ const Detail = ({
               <h3>📖 Overview</h3>
               <p className={styles.overview}>{data?.overview}</p>
             </div>
-            <Button onClick={goBack}>Go Back</Button>
+            <Button onClick={goHome}>Go Back</Button>
           </>
         )}
       </main>
