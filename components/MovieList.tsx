@@ -5,7 +5,7 @@ import { useInfiniteQuery } from "react-query";
 import { useRef } from "react";
 import { useInfiniteScroll } from "@hooks/useInfiniteScroll";
 
-const MovieListMain = () => {
+const MovieList = () => {
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery<MoviesData>(
     moviesQuery.key,
     ({ pageParam = 1 }) => moviesQuery.fetcher({ page: pageParam }),
@@ -32,7 +32,7 @@ const MovieListMain = () => {
   );
 };
 
-export default MovieListMain;
+export default MovieList;
 
 const Main = styled.main`
   display: grid;
