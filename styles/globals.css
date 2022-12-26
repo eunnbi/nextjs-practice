@@ -1,3 +1,8 @@
+:root {
+  --vh: 100%;
+  --hh: 100px;
+}
+
 * {
   box-sizing: border-box;
 }
