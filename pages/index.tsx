@@ -2,14 +2,14 @@ import { GetServerSidePropsContext } from "next";
 import { QueryClient, dehydrate } from "react-query";
 import CustomHead from "@components/common/CustomHead";
 import { moviesQuery } from "@api/movie";
-import { getAbsoluteUrl } from "@utils/index";
-import MovieListMain from "@components/MovieListMain";
+import { getAbsoluteUrl } from "@utils/getAbsoluteUrl";
+import MovieList from "@components/MovieList";
 
 const Home = () => {
   return (
     <>
       <CustomHead title="Home" />
-      <MovieListMain />
+      <MovieList />
     </>
   );
 };
