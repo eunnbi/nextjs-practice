@@ -7,6 +7,7 @@ import ThemeButton from "@components/layout/ThemeButton";
 import CustomThemeProvider from "@styles/CustomThemeProvider";
 import { GlobalStyle } from "@styles/GlobalStyle";
 import Header from "@components/layout/Header";
+import TopButton from "@components/layout/TopButton";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <CustomThemeProvider>
             <GlobalStyle />
             <ThemeButton />
+            <TopButton />
             {navBar === undefined || navBar ? <Header /> : null}
             <Component {...pageProps} />
           </CustomThemeProvider>
