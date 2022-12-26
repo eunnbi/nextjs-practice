@@ -3,11 +3,12 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 
 const HeaderBox = styled.header`
+  height: var(--hh);
   display: flex;
   gap: 10px;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px 0 10px;
   box-shadow: ${({ theme }) => `0px 10px 50px ${theme.shadowColor}`};
   font-weight: bold;
   h1 > span {
