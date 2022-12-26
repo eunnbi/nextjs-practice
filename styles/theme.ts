@@ -3,7 +3,7 @@ export const lightTheme = {
   menuColor: "blueviolet",
   textColor: "#000",
   shadowColor: "rgba(0, 0, 0, 0.15)",
-  name: "light",
+  name: "light" as const,
 };
 
 export const darkTheme = {
@@ -11,5 +11,5 @@ export const darkTheme = {
   menuColor: "#D391FA",
   textColor: "#fff",
   shadowColor: "#000",
-  name: "dark",
+  name: "dark" as const,
 };
