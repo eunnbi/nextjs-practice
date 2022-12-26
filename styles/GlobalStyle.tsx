@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     p {
         line-height: 1.8rem;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         word-break: keep-all;
     }
 `;
