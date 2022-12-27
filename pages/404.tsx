@@ -28,6 +28,7 @@ const Main = styled.main`
   bottom: 0;
   width: 100%;
   max-width: var(--max-width);
+  overflow-y: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;

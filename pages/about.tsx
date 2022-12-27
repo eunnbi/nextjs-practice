@@ -9,19 +9,19 @@ const About: NextPage = () => {
     <>
       <CustomHead title="About" />
       <Main>
-        <Desc>
+        <p>
           <span>NextJS</span>를 공부하며 간단한 영화 정보 애플리케이션🎬 을
           만들었습니다.
-        </Desc>
+        </p>
         <Button>
-          <Anchor
+          <a
             href="https://github.com/eunnbi/nextjs-practice"
             target="_blank"
             rel="noreferrer"
           >
             <ImGithub />
             README 보러가기
-          </Anchor>
+          </a>
         </Button>
       </Main>
     </>
@@ -36,25 +36,24 @@ const Main = styled.main`
   bottom: 0;
   width: 100%;
   max-width: var(--max-width);
+  overflow-y: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-`;
-
-const Anchor = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  svg {
-    font-size: 20px;
+  p {
+    text-align: center;
+    span {
+      font-weight: bold;
+    }
   }
-`;
-
-const Desc = styled.p`
-  text-align: center;
-  span {
-    font-weight: bold;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    svg {
+      font-size: 20px;
+    }
   }
 `;
