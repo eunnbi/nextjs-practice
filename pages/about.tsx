@@ -3,10 +3,8 @@ import { Button } from "@components/common/Button.styled";
 import CustomHead from "@components/common/CustomHead";
 import { ImGithub } from "react-icons/im";
 import styled from "styled-components";
-import { useInnerHeight } from "@hooks/useInnerHeight";
 
 const About: NextPage = () => {
-  useInnerHeight();
   return (
     <>
       <CustomHead title="About" />
@@ -33,16 +31,16 @@ const About: NextPage = () => {
 export default About;
 
 const Main = styled.main`
-  padding: 1.5rem;
-  height: calc(100vh - var(--hh));
+  position: fixed;
+  top: var(--header-height);
+  bottom: 0;
+  width: 100%;
+  max-width: var(--max-width);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  @media screen and (max-width: 900px) {
-    height: calc(var(--vh, 1vh) * 100 - var(--hh));
-  }
 `;
 
 const Anchor = styled.a`
