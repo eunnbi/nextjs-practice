@@ -4,12 +4,10 @@ import CustomHead from "@components/common/CustomHead";
 import { ImGithub } from "react-icons/im";
 import styled from "styled-components";
 import { useEffect } from "react";
+import { useInnerHeight } from "@hooks/useInnerHeight";
 
 const About: NextPage = () => {
-  useEffect(() => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  }, []);
+  useInnerHeight();
   return (
     <>
       <CustomHead title="About" />
