@@ -42,7 +42,7 @@ const Main = styled.main`
   justify-content: center;
   gap: 20px;
   overflow-y: hidden;
-  height: calc(100vh - 100px);
+  height: calc(100vh - var(--header-height) - 1px);
   p {
     text-align: center;
     span {
@@ -58,6 +58,6 @@ const Main = styled.main`
     }
   }
   @media screen and (max-width: 900px) {
-    height: calc(var(--vh, 1vh) * 100 - 100px);
+    height: calc(var(--vh, 1vh) * 100 - var(--header-height) - 1px);
   }
 `;
