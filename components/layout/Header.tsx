@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 
 const HeaderBox = styled.header`
-  height: var(--hh);
+  height: var(--header-height);
   display: flex;
   gap: 10px;
   flex-direction: column;
