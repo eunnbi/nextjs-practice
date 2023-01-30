@@ -9,7 +9,9 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 ### App component 커스텀
 
 - 공통 레이아웃 컴포넌트를 만들어 \_app.tsx에 렌더링
-> [💅 Custom App](https://www.eunnbi.dev/posts/next-custom-app), [🗺️ Layout Component](https://www.eunnbi.dev/posts/next-layout-head#layout)
+> [💅 Custom App](https://www.eunnbi.dev/posts/next-custom-app)
+
+> [🗺️ Layout Component](https://www.eunnbi.dev/posts/next-layout-head#layout)
 
 ### 페이지마다 html title 변경
 
@@ -30,7 +32,9 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 - source 경로가 destination 경로로 매핑이 되어 destination 경로를 source 경로로 mask할 수 있다.
 - URL 프록시 역할을 한다.
 
-> [next.config.js](https://github.com/eunnbi/nextjs-practice/blob/main/next.config.js#L6), [Redirects & Rewrites](https://www.eunnbi.dev/posts/next-redirects-rewrites)
+> [next.config.js](https://github.com/eunnbi/nextjs-practice/blob/main/next.config.js#L6)
+
+> [Redirects & Rewrites](https://www.eunnbi.dev/posts/next-redirects-rewrites)
 
 ### getServerSideProps 함수 이용
 
@@ -39,16 +43,20 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 - getServerSideProps함수 인자로 Context Parameter가 들어온다. 이를 이용해 params와 query 데이터를 반환하여 페이지를 pre-render할 때 포함시킨다.
   - [💻 context parameter code example](https://github.com/eunnbi/nextjs-practice/blob/main/pages/movies/%5B...params%5D.tsx#L34)
   
-> [✨ getServerSideProps](https://www.eunnbi.dev/posts/next-getServerSideProps), [👍 NextJS의 pre-rendering](https://www.eunnbi.dev/posts/next-pre-rendering)
+> [✨ getServerSideProps](https://www.eunnbi.dev/posts/next-getServerSideProps)
+
+>  [👍 NextJS의 pre-rendering](https://www.eunnbi.dev/posts/next-pre-rendering)
 
 ### styled-components와 함께 사용하기
 
 - html 파일에 CSS-in-JS 형식으로 작성된 스타일 요소를 미리 주입하여 스타일이 적용되지 않은 html 코드가 먼저 렌더링되는 문제 해결
   - [pages/\_document.tsx](https://github.com/eunnbi/nextjs-practice/blob/main/pages/_document.tsx#L1)
 - server와 client에서 생성하는 class 해시값이 충돌하는 문제 해결
-  - [.babelrc](https://github.com/eunnbi/nextjs-practice/blob/main/.babelrc#L1)
+  - ~~.babelrc~~ => `babel` 대신 `swc` 사용 (2022년 12월 26일)
 
 > [💅 styled-components와 함께 사용하기](https://www.eunnbi.dev/posts/next-styled-components)
+
+>   [🖤 Next.js Compiler](https://www.eunnbi.dev/posts/next-compiler)
 
 ### img 태그 대신 Image 컴포넌트 사용하기
 
