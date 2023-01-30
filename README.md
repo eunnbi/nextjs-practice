@@ -6,33 +6,31 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
 
 ## 📚 Study 내용
 
-<a href="https://velog.io/@eunnbi/series/NextJS"><img alt="NextJS Series" src ="https://img.shields.io/badge/NextJS Series-20C997.svg?&style=flat-square&logo=Velog&logoColor=white"/></a>
-
 ### App component 커스텀
 
 - 공통 레이아웃 컴포넌트를 만들어 \_app.tsx에 렌더링
-- [💅 Custom App](https://velog.io/@eunnbi/NextJS-Custom-App)
-- [🗺️ Layout Component](https://velog.io/@eunnbi/NextJS-Layout-Head#%EF%B8%8F-layout)
+> [💅 Custom App](https://www.eunnbi.dev/posts/next-custom-app), [🗺️ Layout Component](https://www.eunnbi.dev/posts/next-layout-head#layout)
 
 ### 페이지마다 html title 변경
 
-- [🧠 Head Component](https://velog.io/@eunnbi/NextJS-Layout-Head#%F0%9F%A7%A0-head)
+> [🧠 Head Component](https://www.eunnbi.dev/posts/next-layout-head#head)
 
 ### NextJS의 Routing
 
-- [🚗 automatic routing](https://velog.io/@eunnbi/NextJS-Routing#-pages-%ED%8F%B4%EB%8D%94)
-- [💥 Dynamic Routes](https://velog.io/@eunnbi/NextJS-Routing#-dynamic-routes) 적용
-- [🌐 Catch All Routes](https://velog.io/@eunnbi/NextJS-Routing#-catch-all-routes) 적용
-  - `pages/movies/[...params].tsx`
-- [🚧 404 page 커스텀](https://velog.io/@eunnbi/NextJS-Routing#-404-page)
+- 🚗 automatic routing
+- 💥 Dynamic Routes 적용
+- 🌐 Catch All Routes 적용: `pages/movies/[...params].tsx`
+- 🚧 404 page 커스텀
+
+> [Next.js Routing](https://www.eunnbi.dev/posts/next-routing)
 
 ### Rewrites 적용
 
 - API_KEY를 외부에 노출되지 않기 위해 next.config.js에서 rewrites 설정
 - source 경로가 destination 경로로 매핑이 되어 destination 경로를 source 경로로 mask할 수 있다.
 - URL 프록시 역할을 한다.
-- [next.config.js](https://github.com/eunnbi/nextjs-practice/blob/main/next.config.js#L6)
-- [👉 Redirects & Rewrites](https://velog.io/@eunnbi/NextJS-Redirects-Rewrites)
+
+> [next.config.js](https://github.com/eunnbi/nextjs-practice/blob/main/next.config.js#L6), [Redirects & Rewrites](https://www.eunnbi.dev/posts/next-redirects-rewrites)
 
 ### getServerSideProps 함수 이용
 
@@ -40,8 +38,8 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
   - [💻 date fetching code example](https://github.com/eunnbi/nextjs-practice/blob/main/pages/index.tsx#L15)
 - getServerSideProps함수 인자로 Context Parameter가 들어온다. 이를 이용해 params와 query 데이터를 반환하여 페이지를 pre-render할 때 포함시킨다.
   - [💻 context parameter code example](https://github.com/eunnbi/nextjs-practice/blob/main/pages/movies/%5B...params%5D.tsx#L34)
-- [✨ getServerSideProps](https://velog.io/@eunnbi/NextJS-getServerSideProps)
-- [👍 NextJS의 pre-rendering](https://velog.io/@eunnbi/NextJS-Pre-rendering)
+  
+> [✨ getServerSideProps](https://www.eunnbi.dev/posts/next-getServerSideProps), [👍 NextJS의 pre-rendering](https://www.eunnbi.dev/posts/next-pre-rendering)
 
 ### styled-components와 함께 사용하기
 
@@ -49,16 +47,16 @@ NextJS를 공부하며 간단한 영화 정보 애플리케이션🎬 을 만들
   - [pages/\_document.tsx](https://github.com/eunnbi/nextjs-practice/blob/main/pages/_document.tsx#L1)
 - server와 client에서 생성하는 class 해시값이 충돌하는 문제 해결
   - [.babelrc](https://github.com/eunnbi/nextjs-practice/blob/main/.babelrc#L1)
-- [💅 styled-components와 함께 사용하기](https://velog.io/@eunnbi/NextJS-styled-components%EC%99%80-%ED%95%A8%EA%BB%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+
+> [💅 styled-components와 함께 사용하기](https://www.eunnbi.dev/posts/next-styled-components)
 
 ### img 태그 대신 Image 컴포넌트 사용하기
 
-- [🖼️ Image 컴포넌트](https://velog.io/@eunnbi/NextJS-Image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8) (왜 img 태그 대신 Image 컴포넌트를 사용했는지, Image 컴포넌트의 장점과 사용법에 대해 정리)
-  > ✅ issue : [Image 컴포넌트를 height: auto로 사용하기](https://velog.io/@eunnbi/NextJS-Image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8#%EF%B8%8F-image-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-height-auto%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+> [🖼️ 이미지 최적화](https://www.eunnbi.dev/posts/next-image): 왜 img 태그 대신 Image 컴포넌트를 사용했는지, Image 컴포넌트의 장점과 사용법에 대해 정리
 
 ### React Query 이용하여 Server-side Rendering하기
 
-- [💕 NextJS + React Query (with SSR)](https://velog.io/@eunnbi/NextJS-React-Query-with-SSR)
+> [🌺 NextJS + React Query (with SSR)](https://www.eunnbi.dev/posts/next-react-query)
 
   <br/>
 
