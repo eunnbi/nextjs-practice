@@ -5,7 +5,7 @@ import { useInfiniteQuery } from "react-query";
 import { useRef } from "react";
 import { useInfiniteScroll } from "@hooks/useInfiniteScroll";
 
-const MovieList = () => {
+const MovieList = ({ movieList } : { movieList: MoviesData }) => {
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery<MoviesData>(
     moviesQuery.key,
     ({ pageParam = 1 }) => moviesQuery.fetcher({ page: pageParam }),
@@ -14,6 +14,10 @@ const MovieList = () => {
         const { page, total_pages } = lastPage;
         return page === total_pages ? undefined : page + 1;
       },
+      initialData: {
+        pageParams: [1],
+        pages: [movieList]
+      }
     }
   );
   const loadMoreRef = useRef<HTMLDivElement | null>(null);

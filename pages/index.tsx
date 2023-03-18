@@ -1,5 +1,4 @@
-import { GetServerSidePropsContext } from "next";
-import { QueryClient, dehydrate } from "react-query";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import CustomHead from "@components/common/CustomHead";
 import { moviesQuery } from "@api/movie";
 import { getAbsoluteUrl } from "@utils/getAbsoluteUrl";
@@ -7,7 +6,7 @@ import MovieList from "@components/MovieList";
 import { getSessionStorage, SCROLL_POS_KEY } from "@utils/sessionStorage";
 import { useEffect } from "react";
 
-const Home = () => {
+const Home = ({ data } : InferGetServerSidePropsType<typeof getServerSideProps>) => {
   useEffect(() => {
     const value = getSessionStorage<number>(SCROLL_POS_KEY, 0);
     window.scrollTo({
@@ -17,7 +16,7 @@ const Home = () => {
   return (
     <>
       <CustomHead title="Home" />
-      <MovieList />
+      <MovieList movieList={data} />
     </>
   );
 };
@@ -28,13 +27,10 @@ export const getServerSideProps = async ({
   req,
 }: GetServerSidePropsContext) => {
   const baseUrl = getAbsoluteUrl(req);
-  const queryClient = new QueryClient();
-  await queryClient.prefetchInfiniteQuery(moviesQuery.key, () =>
-    moviesQuery.fetcher({ baseUrl })
-  );
+  const data = await moviesQuery.fetcher({ baseUrl })
   return {
     props: {
-      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+      data
     },
   };
 };
